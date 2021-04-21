@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Find a Phone</title>
+  <title>Mars Info</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
@@ -17,15 +17,35 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
 <!-- NEED TO USE BOOTSTRAP TO FIND 1 column, then two column, then 1 column, then 4 column -->
-    <!-- Phone Listings
-    <div class="row" id="craiglist-listings">
+<div class="row">
       <div class="col-md-12">
-        <h4 class="heading">{{listings.price}} {{listings.headline}}</h4>
-        <small>{{listings.reviews}}</small>
+        <h2>Latest Mars News </h2>
+        <h4 class="heading">{{mars_dict.news_title}} </h4>
+        <h5 class="heading">{{mars_dict.news_p}}</h5>
       </div>
-    </div> -->
-
+</div>   
+  <!-- New Line 2 Columns-->
+<div class="row">
+      <div class="col-md-4">
+        <h1>Featured Mars Image</h1>
+        <img src= {{mars_dict.featured_image_url}} alt="Featured Image" />
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <h1>Mars Facts</h1>
+        {{mars_dict.html_table}}
+      </div>
   </div>
+  <!-- New Line 4 Columns-->
+<div class="row">
+    <div class="col-md-4">
+      <h1>I'm a 4 column.</h1>
+        <!-- Image -->
+      <img src= {{mars_dict['Valles Marineris Hemisphere']}} alt="Valles Marineris Hemisphere" />
+    </div>
+  </div>
+</div>
 </body>
 
 </html>

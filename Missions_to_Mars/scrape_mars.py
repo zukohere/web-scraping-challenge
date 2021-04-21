@@ -49,7 +49,12 @@ def scrape():
     html_table = mars_df.to_html()
     #Add table to dictionary
     mars_dict["html_table"] = html_table.replace('\n', '')
-
+    mars_dict["hemisphere_image_urls"] = [
+        {"title": "Valles Marineris Hemisphere", "img_url": "https://marshemispheres.com/images/valles_marineris_enhanced-full.jpg"},
+        {"title": "Cerberus Hemisphere", "img_url": "https://marshemispheres.com/images/full.jpg"},
+        {"title": "Schiaparelli Hemisphere", "img_url": "https://marshemispheres.com/images/schiaparelli_enhanced-full.jpg"},
+        {"title": "Syrtis Major Hemisphere", "img_url": "https://marshemispheres.com/images/syrtis_major_enhanced-full.jpg"},
+        ]
     # Quit the browser
     browser.quit()
 

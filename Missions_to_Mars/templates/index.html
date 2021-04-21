@@ -16,37 +16,42 @@
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
-<!-- NEED TO USE BOOTSTRAP TO FIND 1 column, then two column, then 1 column, then 4 column -->
-<div class="row">
+    <!-- NEED TO USE BOOTSTRAP TO FIND 1 column, then two column, then 1 column, then 4 column -->
+    <div class="row">
       <div class="col-md-12">
         <h2>Latest Mars News </h2>
         <h4 class="heading">{{mars_dict.news_title}} </h4>
         <h5 class="heading">{{mars_dict.news_p}}</h5>
       </div>
-</div>   
-  <!-- New Line 2 Columns-->
-<div class="row">
+    </div>
+    <!-- New Line 2 Columns-->
+    <div class="row">
       <div class="col-md-4">
         <h1>Featured Mars Image</h1>
-        <img src= {{mars_dict.featured_image_url}} alt="Featured Image" />
+        <img src={{mars_dict.featured_image_url}} alt="Featured Image" />
       </div>
       <div class="col-md-4">
       </div>
       <div class="col-md-4">
         <h1>Mars Facts</h1>
-        {{mars_dict.html_table}}
+        {{mars_dict.html_table|safe}}
       </div>
-  </div>
-  <!-- New Line 4 Columns-->
-<div class="row">
-    <div class="col-md-4">
-      <h1>I'm a 4 column.</h1>
+    </div>
+    <!-- New Line 4 Columns-->
+    <div class="row">
+    <div class="col-md-12">
+      <h1>Mars Hemispheres </h1>
+    </div>
+    <div class="row">
+      {% for image in mars_dict.hemisphere_image_urls %}
+      <div class="col-md-3">
+        <h5>{{image.title}}</h5>
         <!-- Image -->
-      <img src= {{mars_dict['Valles Marineris Hemisphere']}} alt="Valles Marineris Hemisphere" />
+        <img src={{image.img_url}} class="img-responsive"/>
+      </div>
+      {% endfor %}
     </div>
   </div>
-</div>
 </body>
 
 </html>
-

@@ -36,7 +36,11 @@ def scrape():
     mars_dict["news_p"] = teaser_dict[(1,1)]
 
     ### JPL Mars Space Images - Featured Image
-    mars_dict["featured_image_url"] = "https://spaceimages-mars.com/image/featured/mars3.jpg"
+    featured_image_url = "https://spaceimages-mars.com/"
+    browser.visit(featured_image_url)
+    html = browser.html
+    soup = BeautifulSoup(html, 'html.parser')
+    mars_dict['featured_image_url']=featured_image_url+soup.find('img', class_='headerimage fade-in')["src"]
 
     ### Mars Facts
     facts_url = "https://galaxyfacts-mars.com"
@@ -49,6 +53,9 @@ def scrape():
     html_table = mars_df.to_html()
     #Add table to dictionary
     mars_dict["html_table"] = html_table.replace('\n', '')
+
+    ### Mars Hemispheres
+    #Using static values unless able to return to this to use scrape/splinter, time permitting.
     mars_dict["hemisphere_image_urls"] = [
         {"title": "Valles Marineris Hemisphere", "img_url": "https://marshemispheres.com/images/valles_marineris_enhanced-full.jpg"},
         {"title": "Cerberus Hemisphere", "img_url": "https://marshemispheres.com/images/full.jpg"},
